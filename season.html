@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Enter a number (1-4) to get a season</h3>
+    <input type="number" id="number" placeholder="Enter number">
+    <button onclick="showseason()">Submit</button>
+    <p id="result"></p>
+
+    <script>
+        function showseason() {
+            let n = parseInt(document.getElementById("number").value);
+            let season = "";
+
+            switch (n) {
+                case 1: season = "winter"; break;
+                case 2: season = "spring"; break;
+                case 3: season = "autumn"; break;
+                case 4: season = "summer"; break;
+                default: season = "invalid number";
+            }
+
+            document.getElementById("result").innerText = season;
+        }
+    </script>
+</body>
+</html>
+>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Result Table</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 30px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 12px;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    th {
+        background: #1e90ff;
+        color: white;
+    }
+
+    .pass { color: green; font-weight: bold; }
+    .fail { color: red; font-weight: bold; }
+
+    .summary {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+</style>
+
+</head>
+<body>
+
+<h1>Student Result Table</h1>
+
+<table id="studentTable">
+    <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Marks</th>
+        <th>Result</th>
+    </tr>
+
+    <!-- 20 Students -->
+    <tr><td>1</td><td>Rahul</td><td>78</td><td class="pass">Pass</td></tr>
+    <tr><td>2</td><td>Priya</td><td>55</td><td class="pass">Pass</td></tr>
+    <tr><td>3</td><td>Amit</td><td>32</td><td class="fail">Fail</td></tr>
+    <tr><td>4</td><td>Neha</td><td>68</td><td class="pass">Pass</td></tr>
+    <tr><td>5</td><td>Rohan</td><td>45</td><td class="pass">Pass</td></tr>
+    <tr><td>6</td><td>Sanya</td><td>28</td><td class="fail">Fail</td></tr>
+    <tr><td>7</td><td>Karan</td><td>92</td><td class="pass">Pass</td></tr>
+    <tr><td>8</td><td>Ankita</td><td>84</td><td class="pass">Pass</td></tr>
+    <tr><td>9</td><td>Dev</td><td>39</td><td class="fail">Fail</td></tr>
+    <tr><td>10</td><td>Simran</td><td>57</td><td class="pass">Pass</td></tr>
+    <tr><td>11</td><td>Harsh</td><td>61</td><td class="pass">Pass</td></tr>
+    <tr><td>12</td><td>Isha</td><td>49</td><td class="pass">Pass</td></tr>
+    <tr><td>13</td><td>Ajay</td><td>23</td><td class="fail">Fail</td></tr>
+    <tr><td>14</td><td>Maya</td><td>74</td><td class="pass">Pass</td></tr>
+    <tr><td>15</td><td>Rita</td><td>36</td><td class="fail">Fail</td></tr>
+    <tr><td>16</td><td>Vinay</td><td>81</td><td class="pass">Pass</td></tr>
+    <tr><td>17</td><td>Naman</td><td>65</td><td class="pass">Pass</td></tr>
+    <tr><td>18</td><td>Deepa</td><td>27</td><td class="fail">Fail</td></tr>
+    <tr><td>19</td><td>Kavya</td><td>90</td><td class="pass">Pass</td></tr>
+    <tr><td>20</td><td>Yash</td><td>41</td><td class="pass">Pass</td></tr>
+
+</table>
+
+<!-- Summary Section -->
+<div class="summary">
+    Total Pass: <span id="totalPass"></span> |
+    Total Fail: <span id="totalFail"></span>
+</div>
+
+<script>
+    const rows = document.querySelectorAll("#studentTable tr");
+    let passCount = 0;
+    let failCount = 0;
+
+    rows.forEach((row, index) => {
+        if (index === 0) return; // skip header row
+
+        const resultCell = row.cells[3];
+        if (resultCell.textContent.trim() === "Pass") {
+            passCount++;
+        } else {
+            failCount++;
+        }
+    });
+
+    document.getElementById("totalPass").innerText = passCount;
+    document.getElementById("totalFail").innerText = failCount;
+</script>
+
+</body>
+</html>
